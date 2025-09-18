@@ -14,9 +14,7 @@ export function normalize(pathname: string, base = import.meta.env.BASE_URL) {
   pathname = "/" + pathname.replace(/^\/*/, "");
   base = "/" + base.replace(/^\/*/, "");
   if (!pathname.startsWith(base)) return "error404";
-  const result = pathname.substring(base.length).replace(/^\/*|\/*$/g, "");
-  // 如果结果为空，返回home作为默认页面
-  return result || "home";
+  return pathname.substring(base.length).replace(/^\/*|\/*$/g, "");
 }
 
 /**
