@@ -52,10 +52,15 @@ async function handleRouteChange(pathname: string) {
 
 async function loadPageComponent(pathname: string) {
   try {
+    // 如果是根路径，重定向到home
+    if (pathname === '' || pathname === '/') {
+      pathname = 'home';
+    }
     const importer = modules[`/src/pages/${pathname}/index.tsx`]();
     const result = await importer;
     return <result.default />;
   } catch (error) {
+    console.log('路由加载失败:', pathname, error);
     const error404 = await import(`@/pages/error404/index.tsx`);
     return <error404.default />;
   }

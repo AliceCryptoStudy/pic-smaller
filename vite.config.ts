@@ -8,6 +8,13 @@ import path from "path";
 export default defineConfig({
   plugins: [react()],
   base: "/",
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html')
+      }
+    }
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
@@ -15,7 +22,8 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    host: "0.0.0.0"
+    host: "0.0.0.0",
+    historyApiFallback: true
   },
   preview: {
     port: 3001,
