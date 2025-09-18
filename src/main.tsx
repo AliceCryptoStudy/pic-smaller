@@ -1,10 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import "./main.scss";
+import { configure } from "mobx";
+import ReactDOM from "react-dom/client";
+import { initLang } from "./locale";
+import { App } from "./App";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+window.onload = async () => {
+  await initLang();
+  configure({
+    enforceActions: "never",
+    useProxies: "ifavailable",
+  });
+
+  const root = document.getElementById("root")!;
+  ReactDOM.createRoot(root).render(<App />);
+};
