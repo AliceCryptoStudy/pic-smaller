@@ -6,3 +6,4 @@
  import { ImageItem } from '../../types/image'
  
  interface ComparisonModalProps {
+ }

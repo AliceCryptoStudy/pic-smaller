@@ -6,3 +6,4 @@
  import { useImageStore } from '../../store/image-store'
  
  export function UploadZone() {
+ }
