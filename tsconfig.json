@@ -29,11 +29,17 @@
       ]
     },
     "incremental": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "src",
-    "tests"
+    "tests",
+    ".next/types/**/*.ts"
   ],
   "references": [
     {
