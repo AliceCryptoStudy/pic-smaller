@@ -4,7 +4,7 @@ import React from 'react'
 import { useImageStore } from '@/store/image-store'
 
 export function QualitySlider() {
-  const { quality, setQuality } = useImageStore()
+  const { settings, setQuality } = useImageStore()
 
   return (
     <div className="space-y-2">
@@ -13,7 +13,7 @@ export function QualitySlider() {
           压缩质量
         </label>
         <span className="text-sm text-gray-500 dark:text-gray-400">
-          {Math.round(quality * 100)}%
+          {Math.round(settings.quality * 100)}%
         </span>
       </div>
       <div className="space-y-2">
@@ -22,7 +22,7 @@ export function QualitySlider() {
           min="0.1"
           max="1"
           step="0.01"
-          value={quality}
+          value={settings.quality}
           onChange={(e) => setQuality(parseFloat(e.target.value))}
           className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer"
         />
